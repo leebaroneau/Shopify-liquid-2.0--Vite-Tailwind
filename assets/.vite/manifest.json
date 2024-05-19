@@ -1,0 +1,7 @@
+{
+  "frontend/entrypoints/main.css": {
+    "file": "c-main.min.css",
+    "src": "frontend/entrypoints/main.css",
+    "isEntry": true
+  }
+}

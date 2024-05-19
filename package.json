@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "dev": "npm-run-all -p -l -r vite:dev shopify:dev",
+    "build": "npm-run-all -p -l -r vite:build",
+    "shopify:dev": "shopify theme dev --port 9000 --store haverford-development.myshopify.com --live-reload full-page --theme-editor-sync",
+    "shopify:logout": "shopify auth logout",
+    "vite:dev": "vite dev",
+    "vite:build": "vite build",
+    "kill": "Taskkill /IM node.exe /F"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@shopify/cli": "^3.57.1",
+    "@shopify/theme": "^3.57.1",
+    "autoprefixer": "^10.4.19",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.2.2",
+    "vite-plugin-page-reload": "^0.2.0",
+    "vite-plugin-shopify": "^3.0.1"
+  }
+}
+

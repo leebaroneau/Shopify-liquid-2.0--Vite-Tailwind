@@ -1,0 +1,3 @@
+# Paths to ignore (don't lint those!)
+ignore:
+  - 'node_modules/**'
