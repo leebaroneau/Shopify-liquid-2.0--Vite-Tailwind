@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "npm-run-all -p -l -r vite:dev shopify:dev",
     "build": "npm-run-all -p -l -r vite:build",
-    "shopify:dev": "shopify theme dev --port 9000 --store haverford-development.myshopify.com --live-reload full-page --theme-editor-sync",
+    "shopify:dev": "shopify theme dev --port 9000 --store haverfordbox.myshopify.com --live-reload full-page --theme-editor-sync",
     "shopify:logout": "shopify auth logout",
     "vite:dev": "vite dev",
     "vite:build": "vite build",

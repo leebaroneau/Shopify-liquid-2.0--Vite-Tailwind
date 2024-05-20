@@ -464,7 +464,6 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
   "settings": [
     {
       "type": "select",
@@ -648,7 +647,52 @@
   "blocks": [
     {
       "type": "@app"
-    }
+      },
+      {% comment %} Explain {% endcomment %}
+      {
+        "type": "banner",
+        "name":"Mega Menu Banner",
+        "settings": [
+           {
+            "type": "range",
+            "id": "id",
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "label": "ID",
+            "unit": "#",
+            "info": "ID connect mega menu.",
+            "default": 1
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image item"
+          },
+          {
+            "type": "url",
+            "id": "b_link",
+            "label": "Banner link"
+          },
+          {
+            "type": "select",
+            "id": "open_link", 
+            "options": [
+              {
+                "value": "_self",
+                "label": "Current window"
+              },
+             {
+                "value": "_blank",
+                "label": "New window"
+              }
+            ],
+            "label": "Open link in",
+            "default": "_self"
+          }
+        ]
+      }
   ]
 }
 {% endschema %}
+

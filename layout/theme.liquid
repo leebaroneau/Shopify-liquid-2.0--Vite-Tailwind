@@ -283,10 +283,12 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
-    {%- liquid
-      render 'c-vite' with 'main.css'
-      render 'c-vite' with 'main.js'
-    -%}
+    {% comment %}
+      {%- liquid
+        render 'c-vite' with 'main.css'
+        render 'c-vite' with 'main.js'
+      -%}
+    {% endcomment %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

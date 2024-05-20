@@ -121,6 +121,7 @@
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
         {% endif %}
+        data-next-url="{{ paginate.next.url }}"
       >
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
@@ -176,13 +177,62 @@
                 </li>
               {%- endfor -%}
             </ul>
-
-            {%- if paginate.pages > 1 -%}
-              {% render 'pagination', paginate: paginate, anchor: '' %}
-            {%- endif -%}
           </div>
         {%- endif -%}
       </div>
+      {%- if paginate.pages > 1 -%}
+        {% comment %} {% render 'pagination', paginate: paginate, anchor: '' %} {% endcomment %}
+        {% comment %} Explain AJAX {% endcomment %}
+        <button class="load-more-btn">Load More</button>
+        <div class="load-more-spinner" style="display:none">Loading...</div>
+        <style>
+          .load-more-btn,
+          .load-more-spinner {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+          }
+        </style>
+        <script
+          src="https://code.jquery.com/jquery-3.7.1.min.js"
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+          crossorigin="anonymous"
+        ></script>
+        <script>
+          $(document).ready(function () {
+            let productsOnPage = $('#ProductGridContainer');
+            let nextUrl = productsOnPage.attr('data-next-url');
+            let loadMoreBtn = $('.load-more-btn');
+            let loadMoreSpinner = $('.load-more-spinner');
+            $('.load-more-btn').click(function (e) {
+              e.preventDefault();
+              loadMoreBtn.hide();
+              loadMoreSpinner.show();
+              $.ajax({
+                url: nextUrl,
+                type: 'GET',
+                dataType: 'html',
+                success: function (nextPage) {
+                  loadMoreSpinner.hide();
+                  let newProducts = $(nextPage).find('#ProductGridContainer');
+                  productsOnPage.append(newProducts.html());
+                  let newUrl = newProducts.attr('data-next-url');
+                  nextUrl = newUrl;
+                  if (newUrl) {
+                    loadMoreBtn.show();
+                  }
+                },
+              });
+            });
+          });
+        </script>
+      {%- endif -%}
     </div>
   {%- endpaginate -%}
   {% if section.settings.image_shape == 'arch' %}

@@ -1,0 +1,34 @@
+There are two questions focused on how you would implement customizations to the Shopify Dawn theme. 
+You do not need to provide a full code repository with the customizations.
+Any code snippets you include do not need to be fully functional, they are intended to aid in your explanation so the logic and thought process behind them will be evaluated.
+
+Dawn Repo: https://github.com/Shopify/dawn
+Dawn Preview: https://themes.shopify.com/themes/dawn/styles/default/preview
+
+Technical Test Q1: Adding an Image to the Megamenu
+
+Objective:
+Explain how to add an image to the megamenu in Shopify's Dawn theme, using the theme settings to manage the images instead of hardcoding them.
+Requirements:
+Provide a step-by-step explanation of how to achieve this.
+Ensure the explanation covers how to add the image option in the theme settings and how to display it in the megamenu.
+Instructions:
+Describe how to modify the theme settings to include an option for uploading images for the megamenu.
+Explain how to update the liquid template to display the uploaded image in the megamenu.
+(Optional) Include any relevant code snippets for Liquid and Settings Schema to enhance the explanation.
+Most Relevant File: https://github.com/Shopify/dawn/blob/main/sections/header.liquid
+Example: https://prnt.sc/3oW-cDRx763X
+
+TODO: Technical Test Q2: Implementing a "Load More" Button on Collection Template
+Objective:
+Explain how to implement a "Load More" button at the end of a list of products on Shopify's collection template. The button should load the products from page 2 onwards without refreshing the web page.
+Requirements:
+Provide a step-by-step explanation of how to achieve this.
+Ensure the explanation covers how to fetch additional products using AJAX and append them to the existing product list.
+Instructions:
+Describe how to add the "Load More" button to the collection template.
+Explain how to use AJAX to fetch additional products from subsequent pages.
+Detail how to update the product list with the newly loaded products without refreshing the page.
+(Optional) Include any relevant code snippets for Liquid, JavaScript, and CSS to enhance the explanation.
+Most Relevant File: https://github.com/Shopify/dawn/blob/main/sections/main-collection-product-grid.liquid
+Example website: https://prnt.sc/OPqbM5uYukRh

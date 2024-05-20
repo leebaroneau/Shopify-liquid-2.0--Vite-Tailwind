@@ -66,6 +66,45 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
+                  {% comment %}
+                    Explain
+                    {% comment %}
+                      Menuid:
+                      {{- forloop.index }}
+                    {% endcomment %}
+                    {% assign menuID = forloop.index %}
+
+                    {%- for block in section.blocks -%}
+                      {%- case block.type -%}
+                        {%- when 'banner' %}
+                          {% comment %} BlockID:{{ block.settings.id }} {% endcomment %}
+                          {% if menuID == block.settings.id %}
+                            <li>
+                              {% if block.settings.b_link != blank %}
+                                <a
+                                  href="{{ block.settings.b_link }}"
+                                  target="{{ block.settings.open_link }}"
+                                >
+                                  <img
+                                    src="{{ block.settings.image | image_url: width: 500}}"
+                                    width="500"
+                                    height="auto"
+                                    alt="{{ image.alt | escape }}"
+                                  >
+                                </a>
+                              {% else %}
+                                <img
+                                  src="{{ block.settings.image | image_url: width: 500}}"
+                                  width="500"
+                                  height="auto"
+                                  alt="{{ image.alt | escape }}"
+                                >
+                              {% endif %}
+                          {% endif %}
+                          </li>
+                      {%- endcase -%}
+                    {%- endfor -%}
+                  {% endcomment %}
                 </ul>
               </div>
             </details>
